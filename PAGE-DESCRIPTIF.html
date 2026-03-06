@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Descriptif Collectif Antifasciste</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.5; background-color: #f9f9f9; color: #222; }
+    header { text-align: center; padding-bottom: 20px; border-bottom: 2px solid #eee; }
+    .logo { max-width: 200px; border-radius: 10px; margin-bottom: 15px; }
+    h1 { color: #d32f2f; margin-bottom: 5px; }
+    em { color: #555; }
+    .section { margin-top: 25px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .section h3 { color: #d32f2f; margin-bottom: 10px; }
+    .links a { display: block; color: #1976d2; text-decoration: underline; margin: 5px 0; }
+    footer { text-align: center; margin-top: 30px; font-size: 14px; color: #555; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img id="logo" class="logo" src="" alt="Logo Collectif">
+  <h1 id="titre">Titre Collectif</h1>
+  <p id="tagline"><em>Slogan ou phrase courte</em></p>
+</header>
+
+<section id="description" class="section">
+  <!-- Descriptif du collectif s’affichera ici -->
+</section>
+
+<section class="section links">
+  <h3>Contacts & Liens</h3>
+  <div id="liens"></div>
+</section>
+
+<footer>
+  <a href="javascript:history.back()">← Retour à la carte</a>
+</footer>
+
+<script>
+  // Liste de tous les collectifs avec id unique
+  const data = {
+    "afaparisbanlieue": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20AFA%20PB.jpg",
+      titre: "Action Antifasciste Paris Banlieue",
+      tagline: "Collectif actif en Île‑de‑France",
+      description: `
+        <p>Action Antifasciste Paris Banlieue est un collectif qui lutte contre l’extrême droite.</p>
+        <p>Nous organisons des actions, des réunions et des événements de sensibilisation.</p>
+      `,
+      liens: [
+        { href: "https://www.instagram.com/afaparisbanlieue/", text: "Instagram" },
+        { href: "mailto:contact@afaparisbanlieue.org", text: "Email" }
+      ]
+    },
+    "antifaparis20": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20Antifasciste%20Paris%2020e.jpg",
+      titre: "Antifasciste Paris 20e",
+      tagline: "Collectif local du 20e arrondissement",
+      description: "<p>Description détaillée ici pour Antifasciste Paris 20e.</p>",
+      liens: [
+        { href: "https://www.instagram.com/antifaparis20/", text: "Instagram" }
+      ]
+    },
+    "youngstruggleparis": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20Young%20Struggle%20Paris.jpg",
+      titre: "Young Struggle Paris",
+      tagline: "Jeunes antifascistes parisiens",
+      description: "<p>Description détaillée ici pour Young Struggle Paris.</p>",
+      liens: [
+        { href: "https://www.instagram.com/youngstruggleparis/", text: "Instagram" }
+      ]
+    },
+    "comitedesoutien_paris": {
+      logo: "https://github.com/feygus/image-map/raw/main/Comit%C3%A9%20de%20Soutien%20Antifasciste%20-%20Paris.jpg",
+      titre: "Comité de Soutien Antifasciste - Paris",
+      tagline: "Soutien actif à Paris",
+      description: "<p>Description détaillée ici pour Comité de Soutien Antifasciste - Paris.</p>",
+      liens: [
+        { href: "https://www.instagram.com/comitedesoutien_paris/", text: "Instagram" }
+      ]
+    },
+    "villageantifascisteparis": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20Village%20antifasciste%20Paris.jpg",
+      titre: "Village antifasciste Paris",
+      tagline: "Initiative collective à Paris",
+      description: "<p>Description détaillée ici pour Village antifasciste Paris.</p>",
+      liens: [
+        { href: "https://www.instagram.com/village.antifasciste.paris/", text: "Instagram" }
+      ]
+    },
+    "scasparis": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20SCAS.jpg",
+      titre: "Section Carrément Anti Stérin - Paname",
+      tagline: "Collectif parisien actif",
+      description: "<p>Description détaillée ici pour SCAS Paris.</p>",
+      liens: [
+        { href: "https://www.instagram.com/scas.paris/", text: "Instagram" }
+      ]
+    },
+    "extinctionrebellionparis": {
+      logo: "https://github.com/feygus/image-map/raw/main/Extinction%20Rebellion%20Paris%20IDF.jpg",
+      titre: "Extinction Rebellion Paris IDF",
+      tagline: "Groupe climat et actions directes",
+      description: "<p>Description détaillée ici pour Extinction Rebellion Paris IDF.</p>",
+      liens: [
+        { href: "https://www.instagram.com/extinctionrebellionparis/", text: "Instagram" }
+      ]
+    },
+    "mira_parisnord": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20Groupe%20antifasciste%20autonome%20%C3%A0%20Paris-Nord.jpg",
+      titre: "Groupe antifasciste autonome à Paris-Nord",
+      tagline: "Collectif du nord parisien",
+      description: "<p>Description détaillée ici pour Groupe antifasciste autonome à Paris-Nord.</p>",
+      liens: [
+        { href: "https://www.instagram.com/mira_paname/", text: "Instagram" }
+      ]
+    },
+    "soulevementsidf": {
+      logo: "https://github.com/feygus/image-map/raw/main/Logo%20Soul%C3%A8vements%20%C3%8Ele-de-France.jpg",
+      titre: "Soulèvements Île-de-France",
+      tagline: "Collectif régional",
+      description: "<p>Description détaillée ici pour Soulèvements Île-de-France.</p>",
+      liens: [
+        { href: "https://www.instagram.com/soulevements_idf/", text: "Instagram" }
+      ]
+    },
+    "youthforclimateparis": {
+      logo: "https://github.com/feygus/image-map/raw/main/Youth%20for%20Climate%20Paris-Ile-de-France.jpg",
+      titre: "Youth for Climate Paris-Ile-de-France",
+      tagline: "Jeunes militants pour le climat",
+      description: "<p>Description détaillée ici pour Youth for Climate Paris-Ile-de-France.</p>",
+      liens: [
+        { href: "https://www.instagram.com/youthforclimateparis/", text: "Instagram" }
+      ]
+    }
+  };
+
+  // Récupérer l'id depuis l'URL
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (data[id]) {
+    const d = data[id];
+    document.getElementById("logo").src = d.logo;
+    document.getElementById("titre").innerText = d.titre;
+    document.getElementById("tagline").innerText = d.tagline;
+    document.getElementById("description").innerHTML = d.description;
+
+    const liensDiv = document.getElementById("liens");
+    d.liens.forEach(l => {
+      liensDiv.innerHTML += `<a target="_blank" href="${l.href}">${l.text}</a>`;
+    });
+  } else {
+    document.getElementById("description").innerHTML = "<p>Collectif non trouvé.</p>";
+  }
+</script>
+
+</body>
+</html>
