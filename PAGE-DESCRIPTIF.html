@@ -20,48 +20,56 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'IBM Plex Sans', sans-serif; background: var(--noir); color: var(--texte); min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* HEADER */
     header { background: var(--anthracite); border-bottom: 3px solid var(--rouge); padding: 0 1.5rem; position: sticky; top: 0; z-index: 100; }
-    nav { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 0.12em; color: var(--rouge-vif); cursor: pointer; text-decoration: none; }
+    nav { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 0.12em; color: var(--rouge-vif); cursor: pointer; }
     .nav-logo:hover { color: var(--beige); }
 
-    /* BREADCRUMB */
-    .breadcrumb { max-width: 900px; margin: 1.2rem auto 0; padding: 0 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.07em; color: var(--gris-clair); display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 1.4rem; }
+    .breadcrumb { max-width: 960px; margin: 1.2rem auto 0; padding: 0 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.07em; color: var(--gris-clair); display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 1.4rem; }
     .breadcrumb .crumb { color: var(--gris-clair); cursor: pointer; transition: color 0.15s; }
     .breadcrumb .crumb:hover { color: var(--rouge-vif); }
     .breadcrumb .sep { color: var(--rouge); }
-    .breadcrumb .current { color: var(--texte); opacity: 0.5; cursor: default; }
+    .breadcrumb .current { color: var(--texte); opacity: 0.5; }
 
-    /* WRAPPER */
-    .page-wrap { max-width: 900px; margin: 2rem auto 4rem; padding: 0 1.5rem; flex: 1; }
+    .page-wrap { max-width: 960px; margin: 2rem auto 4rem; padding: 0 1.5rem; flex: 1; }
 
-    /* ANIMATIONS */
     .vue { display: none; animation: fadeUp 0.35s ease both; }
     .vue.active { display: block; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* VUE ACCUEIL */
-    .accueil-titre { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 7vw, 5rem); letter-spacing: 0.04em; line-height: 0.95; color: var(--beige); margin-bottom: 0.4rem; }
+    /* ── ACCUEIL ── */
+    .accueil-titre { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 7vw, 5.5rem); letter-spacing: 0.04em; line-height: 0.92; color: var(--beige); margin-bottom: 0.5rem; }
     .accueil-titre span { color: var(--rouge); }
-    .accueil-sous { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gris-clair); text-transform: uppercase; margin-bottom: 2.5rem; }
-    .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .accueil-sous { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gris-clair); text-transform: uppercase; margin-bottom: 3rem; }
+
+    .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
     .categorie-card { background: var(--anthracite); border: 1px solid var(--gris); border-top: 4px solid var(--rouge); padding: 1.5rem; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
     .categorie-card:hover { transform: translateY(-3px); border-color: var(--rouge-vif); }
+    .categorie-card.vide { border-top-color: var(--gris-clair); opacity: 0.5; cursor: default; }
+    .categorie-card.vide:hover { transform: none; border-color: var(--gris-clair); }
     .categorie-icone { font-size: 2rem; margin-bottom: 0.6rem; }
-    .categorie-nom { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: var(--beige); margin-bottom: 0.3rem; }
-    .categorie-count { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--gris-clair); letter-spacing: 0.06em; }
+    .categorie-nom { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--beige); margin-bottom: 0.3rem; line-height: 1.1; }
+    .categorie-desc { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--gris-clair); letter-spacing: 0.04em; margin-bottom: 0.5rem; line-height: 1.4; }
+    .categorie-count { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--rouge-vif); letter-spacing: 0.06em; }
+    .categorie-count.zero { color: var(--gris-clair); }
 
-    /* VUE LIEUX */
+    /* ── VILLES ── */
     .vue-titre { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: 0.05em; color: var(--beige); margin-bottom: 0.3rem; }
     .vue-sous { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--rouge-vif); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; }
-    .lieux-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; }
-    .lieu-card { background: var(--anthracite); border: 1px solid var(--gris); padding: 1.2rem 1.4rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; display: flex; align-items: center; justify-content: space-between; }
-    .lieu-card:hover { border-color: var(--rouge); background: #221212; }
-    .lieu-nom { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--beige); }
-    .lieu-count { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--rouge-vif); background: #2d1414; padding: 2px 7px; border-radius: 2px; }
 
-    /* VUE LISTE */
+    .villes-section-titre { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gris-clair); margin-bottom: 0.6rem; margin-top: 1.5rem; }
+    .villes-section-titre:first-child { margin-top: 0; }
+
+    .villes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.6rem; margin-bottom: 0.6rem; }
+    .ville-card { background: var(--anthracite); border: 1px solid var(--gris); padding: 0.9rem 1.1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; display: flex; align-items: center; justify-content: space-between; }
+    .ville-card:hover { border-color: var(--rouge); background: #221212; }
+    .ville-card.vide { opacity: 0.35; cursor: default; }
+    .ville-card.vide:hover { border-color: var(--gris); background: var(--anthracite); }
+    .ville-nom { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 0.88rem; color: var(--beige); }
+    .ville-count { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--rouge-vif); background: #2d1414; padding: 2px 6px; border-radius: 2px; }
+    .ville-count.zero { color: var(--gris-clair); background: var(--gris); }
+
+    /* ── LISTE ── */
     .collectifs-list { display: flex; flex-direction: column; gap: 0.7rem; }
     .collectif-row { background: var(--anthracite); border: 1px solid var(--gris); border-left: 4px solid var(--rouge); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 1.2rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
     .collectif-row:hover { border-color: var(--rouge-vif); background: #1f1212; }
@@ -72,22 +80,23 @@
     .collectif-row-arrow { font-size: 1rem; color: var(--gris-clair); transition: color 0.2s, transform 0.2s; }
     .collectif-row:hover .collectif-row-arrow { color: var(--rouge-vif); transform: translateX(4px); }
 
-    /* VUE FICHE */
+    /* ── FICHE ── */
     .fiche-header { background: var(--anthracite); border: 1px solid var(--gris); border-top: 4px solid var(--rouge); padding: 2rem; display: flex; align-items: center; gap: 2rem; margin-bottom: 1.2rem; }
     .fiche-logo { width: 120px; height: 120px; object-fit: contain; background: var(--gris); padding: 10px; flex-shrink: 0; border-radius: 4px; }
     .fiche-titre { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.05em; color: var(--beige); line-height: 1.1; margin-bottom: 0.4rem; }
     .fiche-tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; color: var(--rouge-vif); text-transform: uppercase; }
+
     .bloc { background: var(--anthracite); border: 1px solid var(--gris); padding: 1.5rem 1.8rem; margin-bottom: 1.2rem; }
     .bloc h3 { font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.2em; color: var(--rouge-vif); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
     .bloc h3::after { content: ''; flex: 1; height: 1px; background: var(--gris); }
     .bloc p { font-size: 0.95rem; line-height: 1.75; color: #bfb9b1; margin-bottom: 0.6rem; }
     .bloc p:last-child { margin-bottom: 0; }
+
     .liens-wrap a { display: inline-flex; align-items: center; gap: 8px; padding: 0.5rem 1rem; background: var(--gris); color: var(--texte); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; border: 1px solid transparent; margin-right: 0.6rem; margin-bottom: 0.5rem; transition: border-color 0.2s, background 0.2s; }
     .liens-wrap a:hover { border-color: var(--rouge); background: #2d1414; color: #fff; }
 
-    /* FOOTER */
     footer { background: var(--anthracite); border-top: 2px solid var(--gris); padding: 1.2rem 1.5rem; margin-top: auto; }
-    .footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--rouge); }
     footer p { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--gris-clair); }
     .back-btn { display: inline-flex; align-items: center; gap: 6px; padding: 0.4rem 1rem; border: 1px solid var(--rouge); color: var(--rouge-vif); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s; }
@@ -96,6 +105,7 @@
     @media (max-width: 600px) {
       .fiche-header { flex-direction: column; text-align: center; }
       .fiche-logo { width: 90px; height: 90px; }
+      .categories-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -103,7 +113,7 @@
 
 <header>
   <nav>
-    <span class="nav-logo" onclick="goTo('accueil')">✊ Collectifs en lutte — IDF</span>
+    <span class="nav-logo" onclick="goTo('accueil')">✊ Collectifs en lutte</span>
   </nav>
 </header>
 
@@ -112,13 +122,13 @@
 <div class="page-wrap">
   <div class="vue" id="vue-accueil">
     <h1 class="accueil-titre">Collectifs<br><span>en lutte</span></h1>
-    <p class="accueil-sous">Île-de-France — réseau de groupes organisés</p>
+    <p class="accueil-sous">France — réseau de groupes organisés</p>
     <div class="categories-grid" id="categories-grid"></div>
   </div>
-  <div class="vue" id="vue-lieux">
-    <h2 class="vue-titre" id="lieux-titre"></h2>
-    <p class="vue-sous" id="lieux-sous"></p>
-    <div class="lieux-grid" id="lieux-grid"></div>
+  <div class="vue" id="vue-villes">
+    <h2 class="vue-titre" id="villes-titre"></h2>
+    <p class="vue-sous" id="villes-sous"></p>
+    <div id="villes-container"></div>
   </div>
   <div class="vue" id="vue-liste">
     <h2 class="vue-titre" id="liste-titre"></h2>
@@ -143,61 +153,107 @@
 
 <footer>
   <div class="footer-inner">
-    <span class="footer-logo">✊ Collectifs en lutte — IDF</span>
-    <p>Réseau de groupes organisés — Île-de-France</p>
+    <span class="footer-logo">✊ Collectifs en lutte</span>
+    <p>Réseau de groupes organisés — France</p>
     <span class="back-btn" id="footer-back" onclick="navBack()">← Retour</span>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   ▌▌▌ DONNÉES — MODIFIER ICI POUR AJOUTER / ÉDITER ▌▌▌
+   ▌▌▌ DONNÉES — TOUT MODIFIER ICI ▌▌▌
    ============================================================
 
-   CATÉGORIES
-   ----------
-   Pour ajouter une catégorie :
-   { id: "mon-id", nom: "Mon nom", icone: "🔥", description: "Sous-titre" }
+   CATÉGORIES disponibles (ne pas changer les id) :
+     "antifasciste" | "ecologiste" | "national" | "media"
 
-   COLLECTIFS
-   ----------
-   Pour ajouter un collectif, copier un bloc et remplir :
-   - id        : identifiant unique, sans espaces (utilisé dans l'URL ?id=...)
-   - categorie : doit correspondre à un id de catégorie ci-dessus
-   - lieu      : texte libre (ex: "Paris", "Banlieue", "Seine-Saint-Denis"...)
-   - logo      : URL de l'image
-   - titre     : nom complet
-   - tagline   : phrase courte
-   - description : HTML libre (balises <p>, <ul>, <li>, <strong> autorisées)
-   - liens     : liste de { href: "url", text: "Libellé ↗" }
+   VILLES : la liste complète est définie plus bas dans VILLES[].
+   Pour ajouter un collectif dans une ville, ajoute un objet
+   dans collectifs[] avec le bon champ "ville".
+
+   AJOUTER UN COLLECTIF — copier-coller ce modèle :
+   {
+     id: "mon-id-unique",          // sans espaces, utilisé dans l'URL ?id=...
+     categorie: "antifasciste",    // voir catégories ci-dessus
+     ville: "Paris",               // doit correspondre exactement à un nom dans VILLES
+     logo: "https://...",          // URL de l'image
+     titre: "Nom du collectif",
+     tagline: "Phrase courte",
+     description: `
+       <h3>À propos</h3>
+       <p>Texte de description...</p>
+     `,
+     liens: [
+       { href: "https://instagram.com/...", text: "Instagram ↗" }
+     ]
+   },
 
    ============================================================ */
 
 const DATA = {
 
+  /* ── CATÉGORIES ── */
   categories: [
     {
       id: "antifasciste",
-      nom: "Antifasciste",
+      nom: "Antifascistes",
       icone: "✊",
       description: "Groupes de lutte contre l'extrême droite"
     },
     {
-      id: "climat",
-      nom: "Climat",
+      id: "ecologiste",
+      nom: "Écologistes",
       icone: "🌱",
       description: "Mobilisation pour l'urgence climatique"
+    },
+    {
+      id: "national",
+      nom: "Mouvements nationaux",
+      icone: "🏴",
+      description: "Organisations à échelle nationale"
+    },
+    {
+      id: "media",
+      nom: "Presse & médias engagés",
+      icone: "📰",
+      description: "Médias indépendants et engagés"
     }
-    // ← Ajouter une catégorie ici
   ],
 
+  /* ── GRANDES VILLES DE FRANCE ── */
+  /* Les villes sans collectif apparaissent en grisé.
+     Pour ajouter une ville, rajouter son nom ici ET dans un collectif. */
+  villes: [
+    // Île-de-France
+    "Paris", "Banlieue parisienne", "Seine-Saint-Denis", "Val-de-Marne", "Hauts-de-Seine",
+    // Grand Nord
+    "Lille", "Amiens", "Reims", "Rouen", "Caen",
+    // Grand Est
+    "Strasbourg", "Metz", "Nancy", "Mulhouse",
+    // Normandie / Bretagne / Pays de la Loire
+    "Rennes", "Nantes", "Le Mans", "Brest", "Lorient",
+    // Centre
+    "Tours", "Orléans", "Clermont-Ferrand", "Limoges",
+    // Sud-Ouest
+    "Bordeaux", "Toulouse", "Montpellier", "Nîmes", "Perpignan", "Bayonne",
+    // Sud-Est
+    "Marseille", "Lyon", "Nice", "Grenoble", "Toulon", "Avignon", "Aix-en-Provence",
+    // Est
+    "Dijon", "Besançon",
+    // National
+    "National / France entière"
+  ],
+
+  /* ── COLLECTIFS ── */
   collectifs: [
 
-    // ——— ANTIFASCISTE / Paris & Banlieue ———
+    // ——————————————————————————————
+    // ANTIFASCISTES — Paris
+    // ——————————————————————————————
     {
       id: "afaparisbanlieue",
       categorie: "antifasciste",
-      lieu: "Paris & Banlieue",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20AFA%20PB.jpg",
       titre: "Action Antifasciste Paris Banlieue",
       tagline: "Collectif actif en Île‑de‑France",
@@ -211,158 +267,111 @@ const DATA = {
         { href: "mailto:contact@afaparisbanlieue.org", text: "Email ↗" }
       ]
     },
-
-    // ——— ANTIFASCISTE / Paris ———
     {
       id: "antifaparis20",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20Antifasciste%20Paris%2020e.jpg",
       titre: "Antifasciste Paris 20e",
       tagline: "Collectif local du 20e arrondissement",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Antifasciste Paris 20e.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/antifaparis20/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/antifaparis20/", text: "Instagram ↗" }]
     },
     {
       id: "youngstruggleparis",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20Young%20Struggle%20Paris.jpg",
       titre: "Young Struggle Paris",
       tagline: "Jeunes antifascistes parisiens",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Young Struggle Paris.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/youngstruggleparis/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/youngstruggleparis/", text: "Instagram ↗" }]
     },
     {
       id: "comitedesoutien_paris",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Comit%C3%A9%20de%20Soutien%20Antifasciste%20-%20Paris.jpg",
       titre: "Comité de Soutien Antifasciste - Paris",
-      tagline: "Soutien actif à Paris",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour le Comité de Soutien Antifasciste - Paris.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/comitedesoutien_paris/", text: "Instagram ↗" }
-      ]
+      tagline: "Soutien aux militant·e·s",
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/comitedesoutien_paris/", text: "Instagram ↗" }]
     },
     {
       id: "villageantifascisteparis",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20Village%20antifasciste%20Paris.jpg",
       titre: "Village antifasciste Paris",
       tagline: "Initiative collective à Paris",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Village antifasciste Paris.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/village.antifasciste.paris/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/village.antifasciste.paris/", text: "Instagram ↗" }]
     },
     {
       id: "scasparis",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20SCAS.jpg",
       titre: "Section Carrément Anti Stérin - Paname",
       tagline: "Collectif parisien actif",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour SCAS Paris.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/scas.paris/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/scas.paris/", text: "Instagram ↗" }]
     },
     {
       id: "mira_parisnord",
       categorie: "antifasciste",
-      lieu: "Paris",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20Groupe%20antifasciste%20autonome%20%C3%A0%20Paris-Nord.jpg",
       titre: "Groupe antifasciste autonome à Paris-Nord",
       tagline: "Collectif autonome du nord parisien",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour le Groupe antifasciste autonome à Paris-Nord.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/mira_paname/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/mira_paname/", text: "Instagram ↗" }]
     },
-
-    // ——— ANTIFASCISTE / Île-de-France ———
     {
       id: "soulevementsidf",
       categorie: "antifasciste",
-      lieu: "Île-de-France",
+      ville: "Banlieue parisienne",
       logo: "https://github.com/feygus/image-map/raw/main/Logo%20Soul%C3%A8vements%20%C3%8Ele-de-France.jpg",
       titre: "Soulèvements Île-de-France",
-      tagline: "Collectif régional",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Soulèvements Île-de-France.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/soulevements_idf/", text: "Instagram ↗" }
-      ]
+      tagline: "Collectif régional IDF",
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/soulevements_idf/", text: "Instagram ↗" }]
     },
 
-    // ——— CLIMAT / Paris & Banlieue ———
+    // ——————————————————————————————
+    // ÉCOLOGISTES — Paris
+    // ——————————————————————————————
     {
       id: "extinctionrebellionparis",
-      categorie: "climat",
-      lieu: "Paris & Banlieue",
+      categorie: "ecologiste",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Extinction%20Rebellion%20Paris%20IDF.jpg",
       titre: "Extinction Rebellion Paris IDF",
       tagline: "Désobéissance civile pour le climat",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Extinction Rebellion Paris IDF.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/extinctionrebellionparis/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/extinctionrebellionparis/", text: "Instagram ↗" }]
     },
     {
       id: "youthforclimateparis",
-      categorie: "climat",
-      lieu: "Paris & Banlieue",
+      categorie: "ecologiste",
+      ville: "Paris",
       logo: "https://github.com/feygus/image-map/raw/main/Youth%20for%20Climate%20Paris-Ile-de-France.jpg",
       titre: "Youth for Climate Paris-Ile-de-France",
       tagline: "Jeunes militants pour le climat",
-      description: `
-        <h3>À propos</h3>
-        <p>Description détaillée ici pour Youth for Climate Paris-Ile-de-France.</p>
-      `,
-      liens: [
-        { href: "https://www.instagram.com/youthforclimateparis/", text: "Instagram ↗" }
-      ]
+      description: `<h3>À propos</h3><p>Description à compléter.</p>`,
+      liens: [{ href: "https://www.instagram.com/youthforclimateparis/", text: "Instagram ↗" }]
     }
 
-    // ← Ajouter un collectif ici (ne pas oublier la virgule sur le bloc précédent)
+    // ← Ajouter d'autres collectifs ici (ne pas oublier la virgule sur le bloc précédent)
 
   ]
 };
 
 /* ============================================================
-   ▌▌▌ MOTEUR DE NAVIGATION — NE PAS MODIFIER ▌▌▌
+   ▌▌▌ MOTEUR — NE PAS MODIFIER EN DESSOUS ▌▌▌
    ============================================================ */
 
-let state = { vue: 'accueil', categorie: null, lieu: null, collectif: null };
+let state = { vue: 'accueil', categorie: null, ville: null, collectif: null };
 const navStack = [];
 
 function goTo(vue, params = {}) {
@@ -370,12 +379,8 @@ function goTo(vue, params = {}) {
   state = { vue, ...params };
   render();
 }
-
 function navBack() {
-  if (navStack.length > 0) {
-    state = navStack.pop();
-    render();
-  }
+  if (navStack.length > 0) { state = navStack.pop(); render(); }
 }
 
 function render() {
@@ -384,15 +389,12 @@ function render() {
   el.style.display = 'block';
   void el.offsetWidth;
   el.classList.add('active');
-
   renderBreadcrumb();
   document.getElementById('footer-back').style.display = navStack.length > 0 ? 'inline-flex' : 'none';
-
   if (state.vue === 'accueil') renderAccueil();
-  if (state.vue === 'lieux')   renderLieux();
+  if (state.vue === 'villes')  renderVilles();
   if (state.vue === 'liste')   renderListe();
   if (state.vue === 'fiche')   renderFiche();
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -401,17 +403,17 @@ function renderBreadcrumb() {
   const parts = [`<span class="crumb" onclick="goTo('accueil')">Accueil</span>`];
   if (state.categorie) {
     const cat = DATA.categories.find(c => c.id === state.categorie);
-    if (state.vue === 'lieux') {
+    if (state.vue === 'villes') {
       parts.push(`<span class="sep">›</span><span class="current">${cat.nom}</span>`);
     } else {
-      parts.push(`<span class="sep">›</span><span class="crumb" onclick="goTo('lieux',{categorie:'${cat.id}'})">${cat.nom}</span>`);
+      parts.push(`<span class="sep">›</span><span class="crumb" onclick="goTo('villes',{categorie:'${cat.id}'})">${cat.nom}</span>`);
     }
   }
-  if (state.lieu !== undefined && state.lieu !== null) {
+  if (state.ville) {
     if (state.vue === 'liste') {
-      parts.push(`<span class="sep">›</span><span class="current">${state.lieu}</span>`);
-    } else {
-      parts.push(`<span class="sep">›</span><span class="crumb" onclick="goTo('liste',{categorie:'${state.categorie}',lieu:'${state.lieu}'})">${state.lieu}</span>`);
+      parts.push(`<span class="sep">›</span><span class="current">${state.ville}</span>`);
+    } else if (state.vue === 'fiche') {
+      parts.push(`<span class="sep">›</span><span class="crumb" onclick="goTo('liste',{categorie:'${state.categorie}',ville:'${state.ville}'})">${state.ville}</span>`);
     }
   }
   if (state.vue === 'fiche' && state.collectif) {
@@ -427,43 +429,85 @@ function renderAccueil() {
   DATA.categories.forEach(cat => {
     const count = DATA.collectifs.filter(c => c.categorie === cat.id).length;
     const card = document.createElement('div');
-    card.className = 'categorie-card';
-    card.innerHTML = `<div class="categorie-icone">${cat.icone}</div><div class="categorie-nom">${cat.nom}</div><div class="categorie-count">${count} collectif${count > 1 ? 's' : ''}</div>`;
-    card.onclick = () => goTo('lieux', { categorie: cat.id });
+    card.className = 'categorie-card' + (count === 0 ? ' vide' : '');
+    card.innerHTML = `
+      <div class="categorie-icone">${cat.icone}</div>
+      <div class="categorie-nom">${cat.nom}</div>
+      <div class="categorie-desc">${cat.description}</div>
+      <div class="categorie-count ${count === 0 ? 'zero' : ''}">${count === 0 ? 'À venir' : count + ' collectif' + (count > 1 ? 's' : '')}</div>`;
+    if (count > 0) card.onclick = () => goTo('villes', { categorie: cat.id });
     grid.appendChild(card);
   });
 }
 
-function renderLieux() {
+function renderVilles() {
   const cat = DATA.categories.find(c => c.id === state.categorie);
-  document.getElementById('lieux-titre').textContent = cat.nom;
-  document.getElementById('lieux-sous').textContent = cat.description;
+  document.getElementById('villes-titre').textContent = cat.nom;
+  document.getElementById('villes-sous').textContent = cat.description;
+
   const collectifsCategorie = DATA.collectifs.filter(c => c.categorie === state.categorie);
-  const lieux = [...new Set(collectifsCategorie.map(c => c.lieu))].sort();
-  const grid = document.getElementById('lieux-grid');
-  grid.innerHTML = '';
-  // Bouton "Tous"
-  const all = document.createElement('div');
-  all.className = 'lieu-card';
-  all.innerHTML = `<span class="lieu-nom">Tous les lieux</span><span class="lieu-count">${collectifsCategorie.length}</span>`;
-  all.onclick = () => goTo('liste', { categorie: state.categorie, lieu: null });
-  grid.appendChild(all);
-  lieux.forEach(lieu => {
-    const count = collectifsCategorie.filter(c => c.lieu === lieu).length;
+  const villesAvecCollectifs = new Set(collectifsCategorie.map(c => c.ville));
+
+  // Groupement géographique
+  const regions = [
+    { label: "Île-de-France", villes: ["Paris", "Banlieue parisienne", "Seine-Saint-Denis", "Val-de-Marne", "Hauts-de-Seine"] },
+    { label: "Nord / Normandie", villes: ["Lille", "Amiens", "Reims", "Rouen", "Caen"] },
+    { label: "Grand Est", villes: ["Strasbourg", "Metz", "Nancy", "Mulhouse"] },
+    { label: "Bretagne / Pays de la Loire", villes: ["Rennes", "Nantes", "Le Mans", "Brest", "Lorient"] },
+    { label: "Centre", villes: ["Tours", "Orléans", "Clermont-Ferrand", "Limoges"] },
+    { label: "Sud-Ouest", villes: ["Bordeaux", "Toulouse", "Montpellier", "Nîmes", "Perpignan", "Bayonne"] },
+    { label: "Sud-Est", villes: ["Marseille", "Lyon", "Nice", "Grenoble", "Toulon", "Avignon", "Aix-en-Provence"] },
+    { label: "Est", villes: ["Dijon", "Besançon"] },
+    { label: "National", villes: ["National / France entière"] }
+  ];
+
+  const container = document.getElementById('villes-container');
+  container.innerHTML = '';
+
+  // Option "Tout voir" si plusieurs villes ont des collectifs
+  if (villesAvecCollectifs.size > 1) {
+    const allBtn = document.createElement('div');
+    allBtn.className = 'villes-grid';
+    allBtn.style.marginBottom = '1.2rem';
     const card = document.createElement('div');
-    card.className = 'lieu-card';
-    card.innerHTML = `<span class="lieu-nom">${lieu}</span><span class="lieu-count">${count}</span>`;
-    card.onclick = () => goTo('liste', { categorie: state.categorie, lieu });
-    grid.appendChild(card);
+    card.className = 'ville-card';
+    card.style.borderColor = 'var(--rouge)';
+    card.innerHTML = `<span class="ville-nom">Tous les collectifs</span><span class="ville-count">${collectifsCategorie.length}</span>`;
+    card.onclick = () => goTo('liste', { categorie: state.categorie, ville: null });
+    allBtn.appendChild(card);
+    container.appendChild(allBtn);
+  }
+
+  regions.forEach(region => {
+    const villesDansRegion = region.villes.filter(v => DATA.villes.includes(v));
+    if (villesDansRegion.length === 0) return;
+
+    const sectionTitre = document.createElement('div');
+    sectionTitre.className = 'villes-section-titre';
+    sectionTitre.textContent = region.label;
+    container.appendChild(sectionTitre);
+
+    const grid = document.createElement('div');
+    grid.className = 'villes-grid';
+
+    villesDansRegion.forEach(ville => {
+      const count = collectifsCategorie.filter(c => c.ville === ville).length;
+      const card = document.createElement('div');
+      card.className = 'ville-card' + (count === 0 ? ' vide' : '');
+      card.innerHTML = `<span class="ville-nom">${ville}</span><span class="ville-count ${count === 0 ? 'zero' : ''}">${count === 0 ? '0' : count}</span>`;
+      if (count > 0) card.onclick = () => goTo('liste', { categorie: state.categorie, ville });
+      grid.appendChild(card);
+    });
+    container.appendChild(grid);
   });
 }
 
 function renderListe() {
   const cat = DATA.categories.find(c => c.id === state.categorie);
   const collectifs = DATA.collectifs.filter(c =>
-    c.categorie === state.categorie && (state.lieu === null || c.lieu === state.lieu)
+    c.categorie === state.categorie && (state.ville === null || c.ville === state.ville)
   );
-  document.getElementById('liste-titre').textContent = state.lieu || cat.nom;
+  document.getElementById('liste-titre').textContent = state.ville || cat.nom;
   document.getElementById('liste-sous').textContent = `${collectifs.length} collectif${collectifs.length > 1 ? 's' : ''}`;
   const list = document.getElementById('collectifs-list');
   list.innerHTML = '';
@@ -472,14 +516,14 @@ function renderListe() {
     row.className = 'collectif-row';
     row.style.animationDelay = (i * 0.05) + 's';
     row.innerHTML = `<img src="${c.logo}" alt="${c.titre}"><div class="collectif-row-infos"><div class="collectif-row-nom">${c.titre}</div><div class="collectif-row-tag">${c.tagline}</div></div><span class="collectif-row-arrow">→</span>`;
-    row.onclick = () => goTo('fiche', { categorie: state.categorie, lieu: state.lieu, collectif: c.id });
+    row.onclick = () => goTo('fiche', { categorie: state.categorie, ville: state.ville, collectif: c.id });
     list.appendChild(row);
   });
 }
 
 function renderFiche() {
   const c = DATA.collectifs.find(x => x.id === state.collectif);
-  document.title = c.titre + ' — Collectifs IDF';
+  document.title = c.titre + ' — Collectifs en lutte';
   document.getElementById('f-logo').src = c.logo;
   document.getElementById('f-logo').alt = c.titre;
   document.getElementById('f-titre').textContent = c.titre;
@@ -490,17 +534,17 @@ function renderFiche() {
   c.liens.forEach(l => { liensDiv.innerHTML += `<a target="_blank" href="${l.href}">${l.text}</a>`; });
 }
 
-// Gestion du lien entrant depuis la carte OSM (?id=...)
+// Entrée depuis lien OSM (?id=...)
 function init() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   if (id) {
     const c = DATA.collectifs.find(x => x.id === id);
     if (c) {
-      navStack.push({ vue: 'accueil', categorie: null, lieu: null, collectif: null });
-      navStack.push({ vue: 'lieux', categorie: c.categorie, lieu: null, collectif: null });
-      navStack.push({ vue: 'liste', categorie: c.categorie, lieu: c.lieu, collectif: null });
-      state = { vue: 'fiche', categorie: c.categorie, lieu: c.lieu, collectif: id };
+      navStack.push({ vue: 'accueil', categorie: null, ville: null, collectif: null });
+      navStack.push({ vue: 'villes', categorie: c.categorie, ville: null, collectif: null });
+      navStack.push({ vue: 'liste', categorie: c.categorie, ville: c.ville, collectif: null });
+      state = { vue: 'fiche', categorie: c.categorie, ville: c.ville, collectif: id };
       render();
       return;
     }
